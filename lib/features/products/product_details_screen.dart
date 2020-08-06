@@ -15,45 +15,66 @@ class ProductDetailsScreen extends StatelessWidget {
     return Scaffold(
       key: sl<ProductsProvider>().productDetailsScaffoldKey,
       appBar: AppBar(),
-      body: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
+      body: Stack(
         children: <Widget>[
-          Row(
+          ListView(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
             children: <Widget>[
-              Text(
-                'Details',
-                style: Theme.of(context).textTheme.headline5,
+              Row(
+                children: <Widget>[
+                  Text(
+                    'Details',
+                    style: Theme.of(context).textTheme.headline5,
+                  ),
+                  Spacer(),
+                  Text(
+                    '${product.price.toStringAsFixed(2)}',
+                    style: Theme.of(context).textTheme.headline5,
+                  ),
+                ],
               ),
-              Spacer(),
-              Text(
-                '${product.price.toStringAsFixed(2)}',
-                style: Theme.of(context).textTheme.headline5,
+              SizedBox(height: 20),
+              ListView(
+                shrinkWrap: true,
+                primary: false,
+                children: <Widget>[
+                  Container(
+                    height: 250,
+                    child: Placeholder(),
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    '${product.name}',
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline5
+                        .copyWith(color: blue495357),
+                  ),
+                  Divider(),
+                  Text(
+                    '${product.details}',
+                    style: Theme.of(context).textTheme.headline5,
+                  ),
+                ],
               ),
             ],
           ),
-          SizedBox(height: 20),
-          ListView(
-            shrinkWrap: true,
-            primary: false,
-            children: <Widget>[
-              Container(
-                height: 250,
-                child: Placeholder(),
+          Positioned.fill(
+            child: Container(
+              height: 60,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  stops: [0, 1],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Color(0x00FFFFFF),
+                    Colors.white,
+                  ],
+                ),
               ),
-              SizedBox(height: 20),
-              Text(
-                '${product.name}',
-                style: Theme.of(context)
-                    .textTheme
-                    .headline5
-                    .copyWith(color: blue495357),
-              ),
-              Divider(),
-              Text(
-                '${product.details}',
-                style: Theme.of(context).textTheme.headline5,
-              ),
-            ],
+            ),
+            top: null,
           ),
         ],
       ),
