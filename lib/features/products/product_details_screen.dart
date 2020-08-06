@@ -64,7 +64,6 @@ class ProductDetailsScreen extends StatelessWidget {
               height: 60,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  stops: [0, 1],
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
