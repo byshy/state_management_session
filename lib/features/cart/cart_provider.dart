@@ -54,30 +54,31 @@ class CartProvider with ChangeNotifier {
       notifyListeners();
     } else {
       showDialog(
-          context: scaffoldKey.currentContext,
-          builder: (context) {
-            return AlertDialog(
-              title: Text('Delete item'),
-              actions: <Widget>[
-                FlatButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Text('CANCEL'),
-                ),
-                FlatButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                    _cartItems.removeAt(index);
-                    totalPrice -= temp.product.price;
-                    itemsCount -= 1;
-                    notifyListeners();
-                  },
-                  child: Text('DELETE'),
-                ),
-              ],
-            );
-          });
+        context: scaffoldKey.currentContext,
+        builder: (context) {
+          return AlertDialog(
+            title: Text('Delete item'),
+            actions: <Widget>[
+              FlatButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text('CANCEL'),
+              ),
+              FlatButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  _cartItems.removeAt(index);
+                  totalPrice -= temp.product.price;
+                  itemsCount -= 1;
+                  notifyListeners();
+                },
+                child: Text('DELETE'),
+              ),
+            ],
+          );
+        },
+      );
     }
   }
 }

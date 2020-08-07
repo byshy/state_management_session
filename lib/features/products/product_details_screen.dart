@@ -60,6 +60,7 @@ class ProductDetailsScreen extends StatelessWidget {
             ],
           ),
           Positioned.fill(
+            top: null,
             child: Container(
               height: 60,
               decoration: BoxDecoration(
@@ -73,7 +74,6 @@ class ProductDetailsScreen extends StatelessWidget {
                 ),
               ),
             ),
-            top: null,
           ),
         ],
       ),

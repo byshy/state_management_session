@@ -42,11 +42,7 @@ class CartScreen extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 20),
-              Consumer<CartProvider>(
-                builder: (_, instance, child) {
-                  return cartItemsBuilder(items: instance.cartItems);
-                },
-              ),
+              cartItemsBuilder(items: instance.cartItems)
             ],
           ),
           bottomNavigationBar: CustomFlatButton(
