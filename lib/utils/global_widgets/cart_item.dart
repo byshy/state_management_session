@@ -37,7 +37,7 @@ class CartItemWidget extends StatelessWidget {
                   children: <Widget>[
                     Expanded(
                       child: Text(
-                        'USD${cartItem.product.price.toStringAsFixed(2)}',
+                        'USD${cartItem.product.price}',
                         style: Theme.of(context).textTheme.headline5,
                       ),
                     )

@@ -45,7 +45,7 @@ class ProductItem extends StatelessWidget {
                   Row(children: <Widget>[
                     Expanded(
                       child: Text(
-                        'USD${product.price.toStringAsFixed(2)}',
+                        'USD${product.price}',
                         style: Theme.of(context).textTheme.headline5,
                       ),
                     )

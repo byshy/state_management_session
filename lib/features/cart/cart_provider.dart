@@ -25,7 +25,7 @@ class CartProvider with ChangeNotifier {
           product: product,
         ),
       );
-      totalPrice += product.price;
+      totalPrice += double.parse(product.price);
       itemsCount += 1;
     }
     notifyListeners();
@@ -37,7 +37,7 @@ class CartProvider with ChangeNotifier {
     CartItem temp = _cartItems[index];
     temp.quantity += 1;
     _cartItems[index] = temp;
-    totalPrice += temp.product.price;
+    totalPrice += double.parse(temp.product.price);
     itemsCount += 1;
     notifyListeners();
   }
@@ -48,7 +48,7 @@ class CartProvider with ChangeNotifier {
     CartItem temp = _cartItems[index];
     if (temp.quantity > 1) {
       temp.quantity -= 1;
-      totalPrice -= temp.product.price;
+      totalPrice -= double.parse(temp.product.price);
       itemsCount -= 1;
       _cartItems[index] = temp;
       notifyListeners();
@@ -69,7 +69,7 @@ class CartProvider with ChangeNotifier {
                 onPressed: () {
                   Navigator.pop(context);
                   _cartItems.removeAt(index);
-                  totalPrice -= temp.product.price;
+                  totalPrice -= double.parse(temp.product.price);
                   itemsCount -= 1;
                   notifyListeners();
                 },

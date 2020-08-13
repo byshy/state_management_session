@@ -28,7 +28,7 @@ class ProductDetailsScreen extends StatelessWidget {
                   ),
                   Spacer(),
                   Text(
-                    '${product.price.toStringAsFixed(2)}',
+                    '${product.price}',
                     style: Theme.of(context).textTheme.headline5,
                   ),
                 ],
@@ -51,10 +51,10 @@ class ProductDetailsScreen extends StatelessWidget {
                         .copyWith(color: blue495357),
                   ),
                   Divider(),
-                  Text(
-                    '${product.details}',
-                    style: Theme.of(context).textTheme.headline5,
-                  ),
+//                  Text(
+//                    '${product.details}',
+//                    style: Theme.of(context).textTheme.headline5,
+//                  ),
                 ],
               ),
             ],

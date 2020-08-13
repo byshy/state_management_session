@@ -1,34 +1,47 @@
+class ProductList {
+  List<Product> productsList;
+
+  ProductList({this.productsList});
+
+  ProductList.fromJson(Map<String, dynamic> json) {
+    if (json['products'] != null) {
+      productsList = new List<Product>();
+      json['products'].forEach((v) {
+        productsList.add(new Product.fromJson(v));
+      });
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    if (this.productsList != null) {
+      data['products'] = this.productsList.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
+}
+
 class Product {
   int id;
-  double price;
   String name;
-  String details;
+  String price;
+  String image;
 
-  Product({
-    this.id,
-    this.price,
-    this.name,
-    this.details,
-  });
+  Product({this.id, this.name, this.price, this.image});
 
   Product.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    price = json['price'];
     name = json['name'];
-    details = json['details'];
+    price = json['price'];
+    image = json['image'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
-    data['price'] = this.price;
     data['name'] = this.name;
-    data['details'] = this.details;
+    data['price'] = this.price;
+    data['image'] = this.image;
     return data;
-  }
-
-  @override
-  String toString() {
-    return 'id: $id, name: $name, price: $price';
   }
 }
