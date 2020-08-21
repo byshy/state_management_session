@@ -28,6 +28,7 @@ Future<void> init() async {
 
   Dio client = Dio(
     BaseOptions(
+//      baseUrl: '', here you can set the base url so you don't have to type it every time you make an API call
       contentType: 'application/json',
     ),
   );
